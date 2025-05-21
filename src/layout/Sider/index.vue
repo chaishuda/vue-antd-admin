@@ -76,14 +76,12 @@ function getMenuIgetMetems(routes: any[], parentPath: string = '') {
         }
 
         // 处理 redirect 属性
-        console.log('route', route)
         if (route.redirect) {
             // 如果 redirect 是相对路径，需要拼接父路径
             const redirectPath = route.redirect.startsWith('/')
                 ? route.redirect
                 : `${currentPath}/${route.redirect}`.replace(/\/+/g, '/');
             menuItem.key = redirectPath;
-            console.log('redirectPath', redirectPath)
         }
 
         return menuItem;
