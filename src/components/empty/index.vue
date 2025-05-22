@@ -26,7 +26,7 @@ const props = defineProps({
         default: () => ({
             width: '200px',
             height: '200px',
-            margin: '0 auto'
+            margin: '50px auto'
         })
     }
 })
