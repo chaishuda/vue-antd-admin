@@ -7,12 +7,10 @@
 
 <script setup lang="ts">
 import { reactive, h, computed } from 'vue';
-import type { MenuProps } from 'ant-design-vue';
 import { HomeOutlined } from '@ant-design/icons-vue';
 import Menu from '../Menu/index.vue';
 import type { CSSProperties } from "vue";
 import { useRouter } from 'vue-router';
-import { useRoute } from 'vue-router';
 
 const props = defineProps({
     sideWidth: {
@@ -38,13 +36,12 @@ const siderStyle: CSSProperties = {
 const state = reactive({
     collapsed: false,
 });
-
 const menuItems = computed(() => {
-    return getMenuIgetMetems(router.options.routes)
+    return getMenuItems([...router.options.routes])
 })
 
 // 获取菜单项
-function getMenuIgetMetems(routes: any[], parentPath: string = '') {
+function getMenuItems(routes: any[], parentPath: string = '') {
     return routes.map(route => {
         if (route.meta?.hidden) return;
 
@@ -68,10 +65,10 @@ function getMenuIgetMetems(routes: any[], parentPath: string = '') {
 
         // 如果有子路由，递归处理
         if (route.children && route.children.length > 0) {
-            const children = getMenuIgetMetems(route.children, currentPath);
+            const children = getMenuItems(route.children, currentPath);
             // 只有当子菜单项不为空时才添加 children 属性
             if (children && children.length > 0) {
-                menuItem.children = children;
+                (menuItem as any).children = children;
             }
         }
 

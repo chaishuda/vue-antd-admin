@@ -1,13 +1,9 @@
 <template>
-  <a-config-provider>
-    <router-view></router-view>
-  </a-config-provider>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

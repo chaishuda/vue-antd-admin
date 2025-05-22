@@ -13,13 +13,13 @@
 import Sider from "./Sider/index.vue";
 import HeaderComponent from "./Header/index.vue";
 import Content from "./Content/index.vue";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const theme = {
     token: {
-        colorPrimary: "#2775b6",
+        colorPrimary: "#3370ff",
     },
-};
+}
 
 const sideWidth = ref(256);
 

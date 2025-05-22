@@ -1,7 +1,3 @@
-/**
- * 空状态组件
- * 用于展示数据为空时的状态，提供返回首页的功能
- */
 <template>
     <a-empty :image="imageUrl" :description="description" :image-style="imageStyle">
         <template #description>
