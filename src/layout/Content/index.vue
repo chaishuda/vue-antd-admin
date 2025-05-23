@@ -20,7 +20,7 @@ import type { CSSProperties } from "vue";
 const keepAliveComponentsName = ref<string[]>([]);
 
 const contentStyle: CSSProperties = {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#F0F2F5",
     maxHeight: "calc(100vh - 64px)",
     overflowY: "auto",
     padding: "16px",

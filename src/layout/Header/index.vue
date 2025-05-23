@@ -1,10 +1,12 @@
 <template>
     <a-layout-header :style="headerStyle">
+        <HeaderRight />
     </a-layout-header>
 </template>
 
 <script setup lang="ts">
 import type { CSSProperties } from "vue";
+import HeaderRight from './components/HeaderRight.vue'
 
 const headerStyle: CSSProperties = {
     textAlign: "center",
@@ -18,4 +20,10 @@ const headerStyle: CSSProperties = {
 </script>
 
 <style lang="scss" scoped>
+.header-right {
+    float: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 </style>
