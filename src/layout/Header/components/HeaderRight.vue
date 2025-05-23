@@ -38,6 +38,7 @@
 import { computed, ref } from "vue";
 import { UserOutlined, LogoutOutlined, SettingOutlined, ExpandOutlined, CompressOutlined } from '@ant-design/icons-vue';
 import useStore from '@/store'
+import { message } from 'ant-design-vue';
 
 const { user } = useStore()
 const userInfo = computed(() => user.getUserInfo)
@@ -45,11 +46,15 @@ const userInfo = computed(() => user.getUserInfo)
 const isFullscreen = ref(false)
 // 全屏查看
 const handleExpand = () => {
-    isFullscreen.value = !isFullscreen.value
-    if (document.fullscreenElement) {
-        document.exitFullscreen()
-    } else {
-        document.documentElement.requestFullscreen()
+    try {
+        isFullscreen.value = !isFullscreen.value
+        if (document.fullscreenElement) {
+            document.exitFullscreen()
+        } else {
+            document.documentElement.requestFullscreen()
+        }
+    } catch (error) {
+        message.error('您的浏览器不支持全屏功能')
     }
 }
 </script>
@@ -61,4 +66,4 @@ const handleExpand = () => {
     display: flex;
     align-items: center;
 }
-</style> 
+</style>
