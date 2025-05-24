@@ -15,5 +15,11 @@ export const useAppStore = defineStore('app', {
         setIsCollapse(isCollapse: boolean) {
             this.isCollapse = isCollapse
         }
+    },
+    persist: {
+        enabled: true,
+        key: 'app-config',
+        storage: localStorage,
+        paths: ['isCollapse']
     }
 })
