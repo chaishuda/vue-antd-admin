@@ -5,7 +5,7 @@ interface State {
     token: string | null
 }
 
-export const useUser = defineStore('user', {
+export const useUserStore = defineStore('user', {
     state: (): State => ({
         userInfo: null,
         token: null,

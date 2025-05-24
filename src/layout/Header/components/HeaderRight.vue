@@ -16,7 +16,7 @@
                         </a-menu-item>
                         <a-menu-item>
                             <SettingOutlined />
-                            设置
+                            系统设置
                         </a-menu-item>
                         <a-menu-divider />
                         <a-menu-item>
@@ -61,8 +61,6 @@ const handleExpand = () => {
 
 <style lang="scss" scoped>
 .header-right {
-    float: right;
-    height: 100%;
     display: flex;
     align-items: center;
 }

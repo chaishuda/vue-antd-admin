@@ -1,7 +1,7 @@
 <template>
-    <a-layout-sider :style="siderStyle" :width="sideWitdh" v-model:collapsed="state.collapsed">
+    <a-layout-sider :style="siderStyle" :width="sideWitdh" v-model:collapsed="isCollapse">
         <div id="logo"><a href="/">Logo</a></div>
-        <Menu :menuItems="menuItems" :collapsed="state.collapsed" />
+        <Menu :menuItems="menuItems" :collapsed="isCollapse" />
     </a-layout-sider>
 </template>
 
@@ -11,6 +11,7 @@ import { HomeOutlined } from '@ant-design/icons-vue';
 import Menu from '../Menu/index.vue';
 import type { CSSProperties } from "vue";
 import { useRouter } from 'vue-router';
+import useStore from '@/store'
 
 const props = defineProps({
     sideWidth: {
@@ -33,11 +34,12 @@ const siderStyle: CSSProperties = {
     boxShadow: "2px 0 8px 0 rgba(29,35,41,.05)",
 };
 
-const state = reactive({
-    collapsed: false,
-});
+const { app } = useStore()
+const isCollapse = computed(() => app.getIsCollapse)
+
+// 菜单
 const menuItems = computed(() => {
-    return getMenuItems([...router.options.routes])
+    return getMenuItems([...router.options.routes]).filter((item): item is NonNullable<typeof item> => item !== undefined)
 })
 
 // 获取菜单项
